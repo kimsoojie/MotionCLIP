@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+        {
+            "name": "train",
+            "type": "python",
+            "request": "launch",
+            "program": "src/train/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-m",
+                "--clip_text_losses=cosine",
+                "--clip_image_losses=cosine",
+                "--pose_rep=rot6d",
+                "--lambda_vel=95",
+                "--lambda_rc=95",
+                "--lambda_rcxyz=95",
+                "--jointstype=vertices",
+                "--batch_size=20",
+                "--num_frames=60",
+                "--num_layers=8",
+                "--lr=0.0001",
+                "--glob",
+                "--translation",
+                "--no-vertstrans",
+                "--latent_dim=512",
+                "--num_epochs=200",
+                "--snapshot=10",
+                "--device=0",
+                "--dataset babel",
+                "--datapath=./data/babel_v1.0_release/train.json",
+                "--folder ./exps/classes-model"
+            ],
+        }
+    ]
+}
